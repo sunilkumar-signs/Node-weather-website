@@ -5,10 +5,12 @@ const path = require('path')
 const hbs = require('hbs')
 const app = express()
 
+
 //Define path for express config  
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname,'../templates/partials')
+const port = process.env.PORT || 3000
 
 //Setup handlerbars engine and views location
 app.set('view engine', 'hbs')
@@ -79,7 +81,7 @@ app.get('*', (req, res)=>{  // error displaying
     })
 })
 
-app.listen(3000,()=>{   // start up the server
-    console.log('the application is up and running on port 3000')
+app.listen(port,()=>{   // start up the server
+    console.log('the application is up and running on port ' + port)
 })
 
